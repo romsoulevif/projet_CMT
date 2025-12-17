@@ -2,11 +2,17 @@
 
 ## Project Description
 
-Describe the purpose of the program.
+The purpose of this project is to simulate crowds with simple model and show how stress affect their dynamics.
 
 ### Input files
 
-Describe the input files used by the program. (Located in "data/".)
+1- Big_matrice.c, Only_state.c : create the matrix used in graph_seuil_V2.m
+2- seuil_graph.m plot a curve that shows how many people need to be initially stressed in order to contaminate a whole crowd.
+3- seuil_anim.m little animation to understand how the stress propagation model used works.
+4- escape_time.m plot a curve that shows the influence of a crowd's stress level on its time to escape a room.
+5- escape_anim.m little animation to understand how the crowd's escape model works.
+(Located in "data/".)
+
 
 ### Output files
 
