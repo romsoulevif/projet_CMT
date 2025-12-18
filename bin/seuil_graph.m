@@ -10,12 +10,8 @@ function seuil_graph()
     resultats = zeros(size(nb_declencheurs_vec));
 
     %% Chargement Fichiers Binaires
-    current_dir = pwd;
-    [parent_dir, ~] = fileparts(current_dir);
-    data_dir = fullfile(parent_dir, 'data');
-    
-    file1 = fullfile(data_dir, 'thresholds_matrix.bin');
-    file2 = fullfile(data_dir, 'state_matrix.bin');
+    file1 = '../data/thresholds_matrix.bin';
+    file2 = '../data/state_matrix.bin');
 
     fidS = fopen(file1, "rb");
     big_thresh = fread(fidS, inf, "int32");
