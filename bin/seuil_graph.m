@@ -13,12 +13,12 @@ function seuil_graph()
     file1 = '../data/thresholds_matrix.bin';
     file2 = '../data/state_matrix.bin');
 
-    fidS = fopen(file1, "rb");
-    big_thresh = fread(fidS, inf, "int32");
+    fidS = fopen(file1, 'rb');
+    big_thresh = fread(fidS, inf, 'int32');
     fclose(fidS);
 
-    fidE = fopen(file2, "rb");
-    big_state = fread(fidE, inf, "int32");
+    fidE = fopen(file2, 'rb');
+    big_state = fread(fidE, inf, 'int32');
     fclose(fidE);
 
     %% Boucle principale sur k
