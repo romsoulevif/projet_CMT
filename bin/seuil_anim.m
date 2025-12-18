@@ -5,7 +5,7 @@ function seuil_anim()
     mu = 7;
     sigma = 0.5;
     N_steps = 400;
-    nb_declencheur = 9;
+    nb_declencheur = 10;
     kernel = ones(5,5);
     R = 3;
 
@@ -41,7 +41,7 @@ function seuil_anim()
         imagesc(new_state);
         colormap([1 1 1; 1 0 0]);
         axis equal tight;
-        title(sprintf('Étape %d', t));
+        title(sprintf("Evolution of the stress propagation. Try again several times, sometimes the stress spreads, sometimes not..."));
         drawnow;
 
         if isequal(new_state, state)

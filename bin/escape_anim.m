@@ -55,7 +55,7 @@ function escape_anim()
         imagesc(grid_w_wall);
         axis equal tight;
         colormap([1 1 1; 0 0 1; 0 0 0]);
-        clim([0 2]);
+        caxis([0 2]);
         title(titles_en{b_idx});
         xlabel('Columns'); 
         ylabel('Rows');
@@ -126,7 +126,7 @@ function escape_anim()
             imagesc(new_grid);
             axis equal tight;
             colormap([1 1 1; 0 0 1; 0 0 0]);
-            clim([0 2]);
+            caxis([0 2]);
             
             hold on; 
             plot(target_j_w, target_i_w, 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 10); 

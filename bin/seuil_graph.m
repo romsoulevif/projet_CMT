@@ -10,21 +10,20 @@ function seuil_graph()
     resultats = zeros(size(nb_declencheurs_vec));
 
     %% Chargement Fichiers Binaires
-    fidS = fopen("thresholds_matrix.bin","rb");
+    current_dir = pwd;
+    [parent_dir, ~] = fileparts(current_dir);
+    data_dir = fullfile(parent_dir, 'data');
+    
+    file1 = fullfile(data_dir, 'thresholds_matrix.bin');
+    file2 = fullfile(data_dir, 'state_matrix.bin');
+
+    fidS = fopen(file1, "rb");
     big_thresh = fread(fidS, inf, "int32");
     fclose(fidS);
 
-    fidE = fopen("state_matrix.bin","rb");
+    fidE = fopen(file2, "rb");
     big_state = fread(fidE, inf, "int32");
     fclose(fidE);
-
-    expected_size = M*N*nb_k*nb_sim;
-    if length(big_thresh) ~= expected_size
-        error("Taille incorrecte thresholds_matrix.bin");
-    end
-    if length(big_state) ~= expected_size
-        error("Taille incorrecte state_matrix.bin");
-    end
 
     %% Boucle principale sur k
     for k = 1:length(nb_declencheurs_vec)
