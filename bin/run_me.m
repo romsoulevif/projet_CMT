@@ -13,7 +13,7 @@ switch choix
     case 2
         % Compiler et exécuter les fichiers C
         system('cd ../data && gcc -o thresholds_matrix thresholds_matrix.c -lm');
-        system('cd ../data && gcc -o state_matrix state_matrix.c');
+        system('cd ../data && gcc -o state_matrix state_matrix.c -lm');
         system('cd ../data && ./thresholds_matrix');
         system('cd ../data && ./state_matrix');
         

@@ -9,15 +9,23 @@ function seuil_graph()
     nb_declencheurs_vec = 1:1:nb_k;
     resultats = zeros(size(nb_declencheurs_vec));
 
-    %% Chargement Fichiers Binaires
+    %% Chargement Fichiers Binaires depuis data/
+    % Chemins relatifs
     file1 = '../data/thresholds_matrix.bin';
-    file2 = '../data/state_matrix.bin');
+    file2 = '../data/state_matrix.bin';
 
+    % Ouvrir et lire les fichiers
     fidS = fopen(file1, 'rb');
+    if fidS == -1
+        error('Fichier non trouvé: %s', file1);
+    end
     big_thresh = fread(fidS, inf, 'int32');
     fclose(fidS);
 
     fidE = fopen(file2, 'rb');
+    if fidE == -1
+        error('Fichier non trouvé: %s', file2);
+    end
     big_state = fread(fidE, inf, 'int32');
     fclose(fidE);
 
@@ -60,6 +68,7 @@ function seuil_graph()
         end
 
         resultats(k) = count_full_panic;
+        fprintf('K = %2d -> %3d/300\n', nb_declencheur, count_full_panic);
     end
 
     %% Affichage
