@@ -36,17 +36,11 @@ C programs should be compiled using mex. The executable or shared object file is
 
 ### Execute
 
-Open "Run_me" in Matlab in the folder "projet_CMT" and follow the instructions.
+Open "Run_me" in Matlab in the folder "projet_CMT/src", run it and follow the instructions.
 
 ## Contributors
 
 Romain Santiard
-
-## Acknowledgments
-
-### Data sources
-
-None
 
 ### Code
 

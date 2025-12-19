@@ -11,8 +11,8 @@ function seuil_graph()
 
     %% Chargement Fichiers Binaires depuis data/
     % Chemins relatifs
-    file1 = '../data/thresholds_matrix.bin';
-    file2 = '../data/state_matrix.bin';
+    file1 = '../bin/thresholds_matrix.bin';
+    file2 = '../bin/state_matrix.bin';
 
     % Ouvrir et lire les fichiers
     fidS = fopen(file1, 'rb');

@@ -30,7 +30,7 @@ int main(void) {
     const long total_mats = (long)N_SIM * (long)MAX_K;
     const long elements_per_mat = (long)M * (long)N;
 
-    FILE *f = fopen("thresholds_matrix.bin", "wb");
+    FILE *f = fopen("../bin/thresholds_matrix.bin", "wb");
     if (!f) {
         perror("Erreur ouverture fichier thresholds_matrix.bin");
         return 1;
@@ -51,6 +51,6 @@ int main(void) {
 
     }
 
-    printf("Nombre total de matrices écrites : %d\n", total_mats);
+    printf("Nombre total de matrices thresholds écrites : %d\n", total_mats);
     fclose(f);
 }

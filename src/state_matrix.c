@@ -12,7 +12,7 @@
 int main() {
     srand(time(NULL));
 
-    FILE *f = fopen("state_matrix.bin", "wb");
+    FILE *f = fopen("../bin/state_matrix.bin", "wb");
     if (!f) {
         printf("Erreur : impossible d’ouvrir state_matrix.bin\n");
         return 1;
@@ -84,6 +84,6 @@ int main() {
     free(p);
     free(cdf);
 
-    printf("Nombre total de matrices écrites : %d\n", mat_index);
+    printf("Nombre total de matrices state écrites : %d\n", mat_index);
     return 0;
 }

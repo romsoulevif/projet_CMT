@@ -1,4 +1,4 @@
-% run_me.m - Version minimaliste
+% run_me.m
 fprintf('1 - seuil_anim.m\n');
 fprintf('2 - seuil_graph.m\n');
 fprintf('3 - escape_anim.m\n');
@@ -11,17 +11,22 @@ switch choix
         seuil_anim();
         
     case 2
-        % Compiler et exécuter les fichiers C
-        system('cd ../data && gcc -o thresholds_matrix thresholds_matrix.c -lm');
-        system('cd ../data && gcc -o state_matrix state_matrix.c -lm');
-        system('cd ../data && ./thresholds_matrix');
-        system('cd ../data && ./state_matrix');
+        % ÉTAPE 1: Compiler les fichiers C vers bin/
+        fprintf('Compilation des fichiers C...\n');
+        system('gcc -o ../bin/thresholds_matrix thresholds_matrix.c -lm');
+        system('gcc -o ../bin/state_matrix state_matrix.c -lm');
         
-        % Lancer la simulation
+        % ÉTAPE 2: Exécuter depuis bin/
+        fprintf('Génération des fichiers binaires...\n');
+        system('cd ../bin && ./thresholds_matrix');
+        system('cd ../bin && ./state_matrix');
+        
+        % ÉTAPE 3: Lancer la simulation
         seuil_graph();
         
-        % Sauvegarder
+        % ÉTAPE 4: Sauvegarder dans results/
         saveas(gcf, '../results/escape_graph.png');
+        fprintf('Graphique sauvegardé dans results/escape_graph.png\n');
         
     case 3
         escape_anim();
