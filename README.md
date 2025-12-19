@@ -22,7 +22,7 @@ The purpose of this project is to simulate crowds with simple model and show how
 
 ### Report
 
-The final report is placed in "docs/" as "report.pdf".
+The final report is placed in "docs/" as "report.pdf". Understanding the scripts really depends on reading this document.
 
 ## Running the program
 

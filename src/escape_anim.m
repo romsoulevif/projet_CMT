@@ -1,5 +1,5 @@
 function escape_anim()
-    %% Lance 3 animations côte à côte avec beta = 0.2, 0.5, 0.8
+    %% Lance 3 animations cote à cote avec beta = 0.2, 0.5, 0.8
     
     %% Paramètres fixes pour toutes les animations
     M = 25; N = 25;
@@ -89,13 +89,13 @@ function escape_anim()
                 i = iCells(k); 
                 j = jCells(k);
                 
-                % Si agent proche sortie → sort
+                % Si agent proche sortie on les fait sortir
                 if abs(i - target_i_w) <= 1 && abs(j - target_j_w) <= 1
                     new_grid(i, j) = 0;
                     continue;
                 end
                 
-                % Calcul coût local
+                % Calcul cout local
                 subPhi = phi_w_wall(i-1:i+1, j-1:j+1);
                 subDensity = localDensity_w_wall(i-1:i+1, j-1:j+1);
                 subCost = subPhi + alpha * subDensity;

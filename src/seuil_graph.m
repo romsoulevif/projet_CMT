@@ -9,7 +9,7 @@ function seuil_graph()
     nb_declencheurs_vec = 1:1:nb_k;
     resultats = zeros(size(nb_declencheurs_vec));
 
-    %% Chargement Fichiers Binaires depuis data/
+    %% Chargement Fichiers Binaires depuis bin/
     % Chemins relatifs
     file1 = '../bin/thresholds_matrix.bin';
     file2 = '../bin/state_matrix.bin';
@@ -35,6 +35,8 @@ function seuil_graph()
         nb_declencheur = nb_declencheurs_vec(k);
 
         for sim = 1:nb_sim
+            % On extrait la matrice 100*100 des grands fichiers obtenus
+            % en C
             idx0 = ( (k-1)*nb_sim + (sim-1) ) * M*N;
             blockT = big_thresh(idx0+1 : idx0+M*N);
             stress_idx_grid = reshape(blockT, [N M]).';
@@ -44,9 +46,9 @@ function seuil_graph()
             no_change_count = 0;
 
             for t = 1:N_steps
-                num_stressed = conv2(state, kernel, 'same');
+                num_stressed = conv2(state, kernel, 'same'); %est une matrice 100×100 où chaque case contient le nombre de voisins stressés (dans un rayon 5×5)
                 new_state = state;
-                new_state(state==0 & num_stressed >= stress_idx_grid) = 1;
+                new_state(state==0 & num_stressed >= stress_idx_grid) = 1; %on compare la grille num_stressed avec le seuil de chaque personne et actualise en fonction
 
                 if isequal(new_state, state)
                     no_change_count = no_change_count + 1;
@@ -61,6 +63,8 @@ function seuil_graph()
                     break;
                 end
 
+                %Condition pour arreter la simulation si la grille ne
+                %change pas pendant 10 itérations
                 if no_change_count >= 10
                     break;
                 end

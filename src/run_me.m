@@ -11,20 +11,20 @@ switch choix
         seuil_anim();
         
     case 2
-        % ÉTAPE 1: Compiler les fichiers C vers bin/
+        % 1: Compiler les fichiers C vers bin/
         fprintf('Compilation des fichiers C...\n');
         system('gcc -o ../bin/thresholds_matrix thresholds_matrix.c -lm');
         system('gcc -o ../bin/state_matrix state_matrix.c -lm');
         
-        % ÉTAPE 2: Exécuter depuis bin/
+        % 2: Exécuter depuis bin/
         fprintf('Génération des fichiers binaires...\n');
         system('cd ../bin && ./thresholds_matrix');
         system('cd ../bin && ./state_matrix');
         
-        % ÉTAPE 3: Lancer la simulation
+        % 3: Lancer la simulation
         seuil_graph();
         
-        % ÉTAPE 4: Sauvegarder dans results/
+        % 4: Sauvegarder dans results/
         saveas(gcf, '../results/escape_graph.png');
         fprintf('Graphique sauvegardé dans results/escape_graph.png\n');
         
